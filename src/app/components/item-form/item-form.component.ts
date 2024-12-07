@@ -1,16 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemService } from '../../services/item.service';
 import { Item } from '../../models/item.model';
-import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-item-form',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule],
   template: `
-    <form (ngSubmit)="createItem()" #itemForm="ngForm" class="p-4">
+    <form (ngSubmit)="onSubmit()" #itemForm="ngForm" class="p-4">
       <div class="mb-3">
         <input 
           type="text" 
@@ -41,23 +40,32 @@ import { HttpClientModule } from '@angular/common/http';
           class="form-control"
         />
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" [disabled]="!itemForm.form.valid" class="btn btn-primary">
+        Submit
+      </button>
     </form>
   `
 })
 export class ItemFormComponent {
-  item: Item = { id: '', name: '', description: '', price: 0 };
+  @Output() itemCreated = new EventEmitter<void>();
+  
+  item: Omit<Item, 'id'> = {
+    name: '',
+    description: '',
+    price: 0
+  };
 
   constructor(private itemService: ItemService) {}
 
-  createItem() {
+  onSubmit() {
     this.itemService.createItem(this.item).subscribe({
-      next: (response) => {
-        console.log('Item Created:', response);
-        this.item = { id: '', name: '', description: '', price: 0 };
+      next: () => {
+        this.item = { name: '', description: '', price: 0 };
+        this.itemCreated.emit();
       },
       error: (error) => {
         console.error('Error creating item:', error);
+        alert('Failed to create item. Please try again.');
       }
     });
   }
