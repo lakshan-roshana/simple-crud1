@@ -8,9 +8,13 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ItemService {
-  private apiUrl = `${environment.apiUrl}/items`;
+  private apiUrl = `${environment.apiUrl}/item`;
 
   constructor(private http: HttpClient) {}
+
+  // getItems() {
+  //   return this.http.get('http://localhost:5227/api/item');
+  // }
 
   getItems(): Observable<Item[]> {
     return this.http.get<Item[]>(this.apiUrl);

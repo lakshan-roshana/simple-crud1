@@ -1,12 +1,12 @@
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
-import { provideAnimations } from '@angular/platform-browser/animations';
+//import { provideAnimations } from '@angular/platform-browser/animations';
 
 const appConfig = {
   providers: [
     provideHttpClient(withFetch()), // Enable fetch
-    provideAnimations()
+    //provideAnimations()
   ]
 };
 

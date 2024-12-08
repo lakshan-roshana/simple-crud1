@@ -16,4 +16,6 @@ import { HttpClientModule } from '@angular/common/http';
     </div>
   `
 })
-export class AppComponent {}
+export class AppComponent {
+  title: string = 'simple-crud1';
+}
