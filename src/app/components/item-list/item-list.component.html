@@ -7,6 +7,7 @@
           <p class="mb-0">name of item: {{ item.name }}</p>
           <small>description: {{ item.description }}</small>
         </div>
+        <button (click)="updateItem(item.id)" class="btn btn-primary btn-sm me-2">Update</button>
         <button (click)="deleteItem(item.id)" class="btn btn-danger btn-sm">Delete</button>
       </li>
     </ul>

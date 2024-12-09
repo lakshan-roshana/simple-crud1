@@ -41,4 +41,35 @@ export class ItemListComponent implements OnInit {
       }
     });
   }
+
+  updateItem(id: string) {
+    // Get the current item to update
+    const itemToUpdate = this.items.find(item => item.id === id);
+  
+    if (!itemToUpdate) {
+      console.error('Item not found!');
+      return;
+    }
+  
+    // Mock updated data - this should come from a form in a real-world application
+    const updatedData: Item = {
+      ...itemToUpdate, // Spread the current item properties
+      name: prompt('Enter new name:', itemToUpdate.name) || itemToUpdate.name,
+      description: prompt('Enter new description:', itemToUpdate.description) || itemToUpdate.description
+    };
+  
+    this.itemService.updateItem(id, updatedData).subscribe({
+      next: (updatedItem) => {
+        // Update the local items array with the new data
+        this.items = this.items.map(item =>
+          item.id === id ? updatedItem : item // Use the updated item from the response
+        );
+      },
+      error: (error) => {
+        console.error('Error updating item:', error);
+      }
+    });
+  }
+  
+  
 }
