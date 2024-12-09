@@ -8,7 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
   selector: 'app-item-list',
   standalone: true,
   imports: [CommonModule, HttpClientModule],
-  template:"./item-list.component.html"
+  styleUrls: ['./item-list.component.css'],
+  templateUrl: './item-list.component.html',
 })
 export class ItemListComponent implements OnInit {
   items: Item[] = [];

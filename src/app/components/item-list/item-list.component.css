@@ -1,0 +1,77 @@
+/* Container styles */
+.p-4 {
+    padding: 1rem; /* Adds padding around the container */
+    background-color: #f9f9f9; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Heading styles */
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem; /* Space below heading */
+    color: #333; /* Dark text for better visibility */
+    text-align: center; /* Center align heading */
+  }
+  
+  /* List styles */
+  .list-group {
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Removes bullets */
+  }
+  
+  /* List item styles */
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem; /* Inner padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 6px; /* Rounded corners */
+    margin-bottom: 0.5rem; /* Spacing between items */
+    background-color: #fff; /* White background */
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  .list-group-item:hover {
+    background-color: #f0f0f0; /* Light gray on hover */
+  }
+  
+  /* Item details styles */
+  strong {
+    display: block;
+    font-size: 1rem;
+    color: #222; /* Slightly darker for emphasis */
+  }
+  
+  p {
+    margin: 0.25rem 0;
+    color: #555; /* Gray for secondary text */
+  }
+  
+  small {
+    color: #888; /* Lighter gray for less important text */
+  }
+  
+  /* Button styles */
+  .btn-danger {
+    background-color: #e63946; /* Vibrant red */
+    border-color: #e63946; /* Match border with background */
+    color: #fff; /* White text */
+    font-size: 0.85rem; /* Slightly smaller font */
+    padding: 0.4rem 0.8rem; /* Compact button size */
+    border-radius: 4px; /* Rounded button */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Hover and click effects */
+  }
+  
+  .btn-danger:hover {
+    background-color: #d62839; /* Slightly darker red on hover */
+    transform: scale(1.05); /* Slight zoom effect */
+  }
+  
+  .btn-danger:active {
+    background-color: #c81f31; /* Even darker red on click */
+    transform: scale(0.95); /* Slight shrink effect */
+  }
+  
